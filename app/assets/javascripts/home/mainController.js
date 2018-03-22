@@ -1,5 +1,5 @@
-angular.module("UGottaDoIt", ["ui.router", "templates"])
-.controller("MainController", function($scope, tasks, $state) {
+angular.module("UGottaDoIt")
+.controller("MainController", ["$scope", "tasks", "$state", function($scope, tasks, $state) {
     $scope.mainHeader = "Welcome!";
     $scope.secondaryHeader = "A wise way to manage your activities and be someone more disciplined!";
 
@@ -17,4 +17,4 @@ angular.module("UGottaDoIt", ["ui.router", "templates"])
     $scope.goToAboutPage = function() {
         $state.go("about");
     };
-})
+}]);

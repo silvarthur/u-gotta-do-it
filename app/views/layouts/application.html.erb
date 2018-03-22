@@ -1,22 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="UGottaDoIt">
   <head>
     <title>UGottaDoIt</title>
-    <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
     <ui-view></ui-view>
-
-    <script type="text/ng-template" id="/home.html">
-
-    </script>
-
-    <script type="text/ng-template" id="/about.html">
-
-    </script>
   </body>
 </html>

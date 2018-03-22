@@ -1,6 +1,6 @@
-angular.module("UGottaDoIt", ["ui.router", "templates"])
-.controller("AboutController", function($scope, $state) {
+angular.module("UGottaDoIt")
+.controller("AboutController", ["$scope", "$state", function($scope, $state) {
     $scope.goToHomePage = function() {
         $state.go("home");
-    };
-})
+     }
+}]);

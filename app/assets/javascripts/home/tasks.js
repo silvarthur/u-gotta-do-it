@@ -1,4 +1,4 @@
-angular.module("UGottaDoIt", ["ui.router", "templates"])
+angular.module("UGottaDoIt")
 .factory('tasks', [function() {
     var listOfTasks = {
         tasks: [{title: "Go to the mall.", description:"Buy new clothes and a new pair of shoes."}, 

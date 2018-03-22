@@ -29,5 +29,5 @@ angular.module("UGottaDoIt", ["ui.router", "templates"])
     .state("home", {url:"/home", templateUrl: "home/_home.html", controller: "MainController"})
     .state("about", {url:"/about", templateUrl: "about/_about.html", controller: "AboutController"});
 
-    $urlRouterProvider.otherwise("home");
+    $urlRouterProvider.otherwise("/home");
 }]);

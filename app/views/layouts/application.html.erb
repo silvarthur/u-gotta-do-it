@@ -6,9 +6,97 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Importing from Google CDN is one way to include Angular JS in an application. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>       
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="app.js"> </script>
   </head>
 
   <body>
-    <%= yield %>
+    <ui-view></ui-view>
+
+    <script type="text/ng-template" id="/home.html">
+      <div class="container">
+        <div class="jumbotron" id="main-header">
+          <h1 class="display-6">{{ mainHeader }}</h1>
+          <p class="lead">{{ secondaryHeader }}</p>
+        </div>
+            
+        <h4 id="secondary-header">Add a new task:</h4>
+    
+        <form action="">
+          <div class="form-group">
+            <input type="text" class="form-control" name="title-input-field" id="title-input-field" ng-model="task.title" aria-describedby="title-help" placeholder="Title of the Task">
+            <small id="title-help" class="form-text text-muted">Type a few words that describe what you have to do.</small>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="description-input-field" id="description-input-field" ng-model="task.description" aria-describedby="description-help" placeholder="Description of the Task">
+            <small id="description-help" class="form-text text-muted">Now, describe what you have to do more precisely.</small>
+          </div>
+
+          <button type="button" class="btn btn-primary" name="confirm-button" id="confirm-button" ng-click="addTask(task.title, task.description)">Add Task</button>
+        </form>
+        
+        <hr>
+    
+        <table class="table table-striped">
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th style="text-align: center">Finished?</th>
+          </tr>
+          <tr ng-repeat="task in tasks">
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td> 
+            <td><button class="btn btn-primary" style="margin:auto; display: block" ng-click="removeTask(task)">YES</button></td>
+          </tr>
+        </table>
+
+        <ul id="footer-options">
+          <li><a>Contact Us</a></li>
+          <li><a href ng-click="goToAboutPage()">About</a></li>
+        </ul>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="/about.html">
+      <div class="container">
+        <h1 id="about-page-main-header">About our Application:</h1>
+
+        <hr>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, varius vitae urna ultrices, eleifend posuere arcu. 
+            Aliquam non venenatis metus. Nulla ac consequat purus. Etiam a nulla diam. Sed faucibus ex vel fermentum luctus. 
+            Donec sollicitudin elit leo, at ultricies tortor ornare quis. Cras non enim pulvinar, feugiat justo sit amet, porta turpis. 
+            Nunc ornare gravida quam. Aliquam consectetur mauris nec velit varius, et fermentum ligula egestas. Donec et molestie magna. 
+            Nulla varius elit dolor, et dictum dolor convallis et. Nulla aliquam ligula nec est tempus, nec pharetra tortor finibus. 
+            Duis sit amet maximus erat.
+        </p>
+
+        <p>
+            Vivamus suscipit mi metus, vitae finibus risus fringilla non. Integer vulputate feugiat lorem sit amet ullamcorper. 
+            Curabitur varius finibus placerat. Mauris quis elit fermentum, tempor metus et, accumsan nunc. 
+            Cras pellentesque, diam ac imperdiet volutpat, turpis lacus efficitur diam, non mattis lectus purus quis est. 
+            Phasellus semper vitae libero vitae tristique. Morbi lobortis elit mauris, id varius odio euismod sed. 
+            Praesent vehicula odio mauris, id tempor risus aliquam vitae. Sed commodo elit id tempor tempor. 
+            Fusce in tellus sed velit efficitur varius quis in enim. Donec ut dictum libero. Morbi eget feugiat augue. 
+            Donec pulvinar lectus lorem, a viverra purus aliquam non. Aliquam a diam sollicitudin elit iaculis cursus.
+        </p>
+
+        <a href ng-click="goToHomePage()">&#8592; Back</a>
+      </div>
+    </script>
   </body>
 </html>

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="jumbotron" id="main-header">
+        <h1 class="display-6">{{ mainHeader }}</h1>
+        <p class="lead">{{ secondaryHeader }}</p>
+    </div>
+    
+    <h4 id="secondary-header">Add a new task:</h4>
+
+    <form action="">
+        <div class="form-group">
+            <input type="text" class="form-control" name="title-input-field" id="title-input-field" ng-model="task.title" aria-describedby="title-help" placeholder="Title of the Task">
+            <small id="title-help" class="form-text text-muted">Type a few words that describe what you have to do.</small>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" name="description-input-field" id="description-input-field" ng-model="task.description" aria-describedby="description-help" placeholder="Description of the Task">
+            <small id="description-help" class="form-text text-muted">Now, describe what you have to do more precisely.</small>
+        </div>
+
+        <button type="button" class="btn btn-primary" name="confirm-button" id="confirm-button" ng-click="addTask(task.title, task.description)">Add Task</button>
+    </form>
+
+    <hr>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th style="text-align: center">Finished?</th>
+        </tr>
+        <tr ng-repeat="task in tasks">
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td> 
+            <td><button class="btn btn-primary" style="margin:auto; display: block" ng-click="removeTask(task)">YES</button></td>
+        </tr>
+    </table>
+
+    <ul id="footer-options">
+        <li><a>Contact Us</a></li>
+        <li><a href ng-click="goToAboutPage()">About</a></li>
+    </ul>
+</div>

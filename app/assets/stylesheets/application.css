@@ -15,7 +15,12 @@
  *= require_self
  */
 
- #secondary-header {
+#main-header {
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+#secondary-header {
     margin-bottom: 20px;
 }
 
@@ -43,6 +48,7 @@
     padding: 0;
     overflow: hidden;
     background-color: #333333;
+    border-radius: 10px;
 }
 
 #footer-options > li {

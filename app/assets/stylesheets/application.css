@@ -14,3 +14,43 @@
  *= require_tree .
  *= require_self
  */
+
+ #secondary-header {
+    margin-bottom: 20px;
+}
+
+#title-input-field {
+    width: 100%;
+}
+
+#description-input-field {
+    width: 100%;
+}
+
+#confirm-button {
+    margin-bottom: 10px; 
+}
+
+#about-page-main-header {
+    width: 100%;
+    text-align: center;
+    margin: 20px;
+}
+
+#footer-options {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+#footer-options > li {
+    font-size: 15px;
+    margin: 10px;
+    float: left;
+}
+
+#footer-options > li > a {
+    color: #ffffff;
+}

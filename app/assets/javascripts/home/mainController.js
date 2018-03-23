@@ -15,6 +15,7 @@ angular.module("UGottaDoIt")
 
     $scope.removeTask = function(task) {
         var index = $scope.tasks.indexOf(task);
+        tasks.destroy(task);
         $scope.tasks.splice(index, 1);
     };
 

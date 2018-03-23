@@ -6,8 +6,9 @@ angular.module("UGottaDoIt")
 
     listOfTasks.getAll = function() {
         return $http.get('/tasks.json').then(
-            function(success) {
-                angular.copy(success.data, listOfTasks.tasks);
+            function(response) {
+                console.log('Data:', response.data);
+                angular.copy(response.data, listOfTasks.tasks);
             }, 
             function(error) {
                 console.log(error);
@@ -16,8 +17,8 @@ angular.module("UGottaDoIt")
 
     listOfTasks.create = function(task) {
         return $http.post('/tasks.json', task).then(
-            function(success) {
-                listOfTasks.tasks.push(success.data);
+            function(response) {
+                listOfTasks.tasks.push(response.data);
             }, 
             function(error) {
                 console.log(error);

@@ -11,6 +11,10 @@ class TasksController < ApplicationController
         respond_with Task.find(params[:id])
     end
 
+    def delete
+        respond_with Task.delete(params[:id])
+    end
+
     private
     def post_params
         params.require(:task).permit(:title, :description)

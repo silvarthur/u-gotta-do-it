@@ -6,7 +6,11 @@ angular.module("UGottaDoIt")
     $scope.tasks = tasks.tasks;
 
     $scope.addTask = function(title, description) {
-        $scope.tasks.push({title: title, description: description});
+        if(!title || title === '' || !description || description === '') {
+            return;
+        } else {
+            tasks.create({'task': {title: title, description: description}});
+        }
     };
 
     $scope.removeTask = function(task) {

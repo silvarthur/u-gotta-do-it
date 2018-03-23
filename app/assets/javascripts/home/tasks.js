@@ -1,8 +1,27 @@
 angular.module("UGottaDoIt")
-.factory('tasks', [function() {
+.factory("tasks", ["$http", function($http) {
     var listOfTasks = {
-        tasks: [{title: "Go to the mall.", description:"Buy new clothes and a new pair of shoes."}, 
-        {title: "Call Scarlett Johansson.", description:"Invite her for a dinner at Lindo Olhar."}]
+        tasks: []
+    };
+
+    listOfTasks.getAll = function() {
+        return $http.get('/tasks.json').then(
+            function(success) {
+                angular.copy(success.data, listOfTasks.tasks);
+            }, 
+            function(error) {
+                console.log(error);
+            });
+    };
+
+    listOfTasks.create = function(task) {
+        return $http.post('/tasks.json', task).then(
+            function(success) {
+                listOfTasks.tasks.push(success.data);
+            }, 
+            function(error) {
+                console.log(error);
+            });
     };
 
     return listOfTasks;

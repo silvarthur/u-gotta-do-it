@@ -1,7 +1,7 @@
 angular.module("UGottaDoIt")
 .controller("MainController", ["$scope", "tasks", "$state", function($scope, tasks, $state) {
-    $scope.mainHeader = "Welcome!";
-    $scope.secondaryHeader = "A wise way to manage your activities and be someone more disciplined!";
+    $scope.mainHeader = "U Gotta Do It!";
+    $scope.secondaryHeader = "A wise way to manage your activities and be someone more disciplined.";
 
     $scope.tasks = tasks.tasks;
 

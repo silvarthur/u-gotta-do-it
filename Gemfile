@@ -24,6 +24,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'angular-rails-templates'
+
+# Provides the respond_to statement that I used in application_controller.rb
+gem 'responders'
+
+gem 'angular_rails_csrf'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

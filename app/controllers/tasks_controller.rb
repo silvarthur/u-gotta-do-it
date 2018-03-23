@@ -11,8 +11,8 @@ class TasksController < ApplicationController
         respond_with Task.find(params[:id])
     end
 
-    def delete
-        respond_with Task.delete(params[:id])
+    def destroy
+        respond_with Task.destroy(params[:id])
     end
 
     private
